@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SunnyE/notes-node#readme",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "yargs": "^7.0.2"
   }
 }
