@@ -20,13 +20,16 @@ var addNote = (title, body) => {
     } catch (e) {
 
     }
-
     
+    var duplicateNotes = notes.filter((note) => note.title === title);
 
-    // adding note to the array
-    notes.push(note);
+    if (duplicateNotes.length > 0) { 
+        // adding note to the array
+        notes.push(note);
+        fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes)); 
+    }
+    
 };
 
 var getAll = () => {
