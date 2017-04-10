@@ -1,8 +1,32 @@
 console.log('starting notes.js');
 
-var addNote = (title, body) => {
-    console.log('Adding Note', title, body);
+const fs = require('fs');
 
+var addNote = (title, body) => {
+    // array of notes
+    var notes = [];
+    
+    var note = {
+        title,
+        body
+    };
+
+    try {
+        // read the notes from data so new note can be appended before adding new
+        var notesString = fs.readFileSync('notes-data.json');
+
+        // parse the json string
+        var notes = JSON.parse(notesString);
+    } catch (e) {
+
+    }
+
+    
+
+    // adding note to the array
+    notes.push(note);
+
+    fs.writeFileSync('notes-data.json', JSON.stringify(notes)); 
 };
 
 var getAll = () => {
