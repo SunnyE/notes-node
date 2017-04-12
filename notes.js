@@ -53,7 +53,7 @@ var getNote = (title) => {
 
     var filteredNotes = notes.filter((note) => note.title === title);
 
-    console.log(filteredNotes[0]); 
+    // console.log(filteredNotes[0]); 
 
     return filteredNotes[0]; 
 

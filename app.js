@@ -11,13 +11,17 @@ command = argv._[0];
 console.log('Command: ', command); 
 console.log('Yargs', argv);
 
+var logNote = (note)=> {
+    console.log('--------');
+    console.log(`Title:  ${note.title}`);
+    console.log(`Body:  ${note.body}`);
+}
+
 if (command === 'add') {
     var note = notes.addNote(argv.title, argv.body);
     if(note) {
         console.log('added note!');
-        console.log('-----');
-        console.log(`Title:  ${note.title}`);
-        console.log(`Body:  ${note.body}`);
+        logNote(note);
     }  else {
         console.log('note already exists');
     }
@@ -36,9 +40,9 @@ if (command === 'add') {
     var note = notes.getNote(argv.title);
     if (note) {
         console.log('Note found!');
-        console.log('--------');
-        console.log(`Title:  ${note.title}`);
-        console.log(`Body:  ${note.body}`);
+        logNote(note);
+    } else {
+        console.log('Note not found');
     }
 } else if (command === 'remove'){
     var noteRemoved = notes.remove(argv.title);
