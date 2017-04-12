@@ -47,6 +47,7 @@ var getNote = (title) => {
 };
 
 var remove = (title) => {
+    fetchNotes();
     console.log('Removing Note: ', title)
 };
 
