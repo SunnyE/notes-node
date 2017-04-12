@@ -11,7 +11,7 @@ command = argv._[0];
 console.log('Command: ', command); 
 console.log('Yargs', argv);
 
-var logNote = (note)=> {
+var logNote = (note)=> 
     console.log('--------');
     console.log(`Title:  ${note.title}`);
     console.log(`Body:  ${note.body}`);
