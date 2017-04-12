@@ -22,9 +22,24 @@ if (command === 'add') {
         console.log('note already exists');
     }
 } else if (command === 'list') {
-    notes.getAll();
+    var noteList = notes.getAll();
+    console.log('Your Notes')
+    for (var i=0; i < noteList.length; i++) {
+        console.log('-----');
+        console.log('')
+        console.log(`Note: ${i+1}`);
+        console.log(`Title:  ${noteList[i].title}`);
+        console.log('')
+
+    }
 } else if (command === 'read'){
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+    if (note) {
+        console.log('Note found!');
+        console.log('--------');
+        console.log(`Title:  ${note.title}`);
+        console.log(`Body:  ${note.body}`);
+    }
 } else if (command === 'remove'){
     var noteRemoved = notes.remove(argv.title);
     var message = noteRemoved ? 'Note was removed' : 'Note not found';
